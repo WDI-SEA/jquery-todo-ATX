@@ -17,7 +17,7 @@ By the end of this, students should be able to:
 
 ## Instructions
 
-Create a single page todo app, where you can add items to a list (things to do). Everything should go away if the page is refreshed, and there is no need to persist items to a database.
+Create a single page todo app, where you can add items to a list (things to do). Everything should go away if the page is refreshed.
 
 ## Bonus (Optional Section)
 
