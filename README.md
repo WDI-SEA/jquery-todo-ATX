@@ -21,6 +21,6 @@ Create a single page todo app, where you can add items to a list (things to do).
 
 ## Bonus (Optional Section)
 
-- Add functionality that allows you to mark them as complete, and/or delete them. 
-- Create some way to edit the name/text of a todo item when you click on it.
+- Add functionality that allows you to mark each item on the list as complete, and/or be deleted from the list. 
+- Create a way to edit the name/text of a todo item when you click on it.
 - Use information from prior lesson's material to persist your list to ```localStorage```
