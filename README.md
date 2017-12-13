@@ -7,15 +7,20 @@
 By the end of this, students should be able to:
 
 - Structure a jquery app to manipulate dom elements
-- Append and remove items on a list
-- Modify the status of items in a list
+- Append and remove items on a list  *Bonus*
+- Modify the status of items in a list  *Bonus*
+<hr>
+
+## Here's an example of what we'll be building today 😺
+
+![grumpy cat todo](https://git.generalassemb.ly/raw/WDIplus-ATX/jQuery-Todo-List/master/assets/grumpy_cat_todo.jpg)
 
 ## Instructions
 
-Create a single page todo app, where you can add items to a list (things to do), mark them as complete, and delete them if needed from either list. Everything should go away if the page is refreshed, and there is no need to persist items to a database.
+Create a single page todo app, where you can add items to a list (things to do). Everything should go away if the page is refreshed, and there is no need to persist items to a database.
 
 ## Bonus (Optional Section)
 
-- Write Jasmine tests to ensure the functionality, or even better use a test driven process to write the solution to start with
+- Add functionality that allows you to mark them as complete, and/or delete them. 
 - Create some way to edit the name/text of a todo item when you click on it.
-- Persist the list to ```localStorage```
+- Use information from prior lesson's material to persist your list to ```localStorage```
