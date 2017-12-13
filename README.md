@@ -22,6 +22,17 @@ By the end of this, students should be able to:
 
 ## Instructions
 
+<!--
+Break down what it will take to get the appending working into a few steps for them would be helpful. like: 
+
+- check out html form elements and add the appropriate one to the page 
+- target the form using jQuery. How can you get text from a form?
+- add an event listener using jquery to respond to a button click or keypress on enter 
+- capture the text from the form and console.log it
+- help along students that are struggling a bit more and get them going?
+- Another bonus could be to spend some time styling it, giving it a personal touch
+-->
+
 Create a single page todo app, where you can add items to a list (things to do). Everything should go away if the page is refreshed.
 <hr>
 
