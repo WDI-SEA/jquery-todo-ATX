@@ -11,7 +11,7 @@ By the end of this, students should be able to:
 - Modify the status of items in a list  *Bonus*
 <hr>
 
-## Here's an example of what we'll be building today 😺
+## Here's a basic example of what we'll be building today 😺
 
 ![grumpy cat todo](https://git.generalassemb.ly/raw/WDIplus-ATX/jQuery-Todo-List/master/assets/grumpy_cat_todo.jpg)
 
