@@ -10,7 +10,7 @@ By the end of this, students should be able to:
 - Append items on a list
 - Modify the status of items in a list - *Bonus*
 - Remove Items on a list - *Bonus*
-- Persist Items to ```localStorage``` *Bonus*
+- Persist Items to ```localStorage``` - *Bonus*
 <hr>
 
 ## Here's a basic example of what we'll be building today 😺
