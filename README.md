@@ -6,7 +6,7 @@
 
 By the end of this, students should be able to:
 
-- Structure a jquery app to manipulate dom elements.
+- Structure a jquery app to manipulate DOM elements.
 - Append items to a list.
 - Modify the status of items in a list - *Bonus🏆*.
 - Remove Items on a list - *Bonus🏆*.
@@ -37,7 +37,7 @@ By the end of this, students should be able to:
 
 ## 🏆 Bonus Section 🏆
 
-#### Congratuation for getting this far, now that you're able to interact with the DOM with jQuery, let's add these features...
+#### Congratulations for getting this far, now that you're able to interact with the DOM with jQuery, let's add these features...
 
 - Add functionality that allows you to mark each item on the list as complete, and/or be deleted from the list. 
 - Create a way to edit the name/text of a todo item when you click on it.
