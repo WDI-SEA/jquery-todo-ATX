@@ -15,14 +15,17 @@ By the end of this, students should be able to:
 
 ![grumpy cat todo](https://git.generalassemb.ly/raw/WDIplus-ATX/jQuery-Todo-List/master/assets/grumpy_cat_todo.jpg)
 
+<hr>
+## Grab your starter code [here](https://git.generalassemb.ly/WDIplus-ATX/jQuery-Todo-List/tree/master/Starter-Code), and let's get started!
+
 ## Instructions
 
 Create a single page todo app, where you can add items to a list (things to do). Everything should go away if the page is refreshed.
 <hr>
 
-## Grab your starter code [here](https://git.generalassemb.ly/WDIplus-ATX/jQuery-Todo-List/tree/master/Starter-Code), and let's get started!
+## Bonus Section!
 
-## Bonus (Optional Section)
+#### Congratuation for getting this far, now that you're able to interact with the DOM with your jQuery, let's add these features..
 
 - Add functionality that allows you to mark each item on the list as complete, and/or be deleted from the list. 
 - Create a way to edit the name/text of a todo item when you click on it.
