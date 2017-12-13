@@ -25,7 +25,7 @@ Create a single page todo app, where you can add items to a list (things to do).
 
 ## Bonus Section!
 
-#### Congratuation for getting this far, now that you're able to interact with the DOM with your jQuery, let's add these features..
+#### Congratuation for getting this far, now that you're able to interact with the DOM with your jQuery, let's add these features...
 
 - Add functionality that allows you to mark each item on the list as complete, and/or be deleted from the list. 
 - Create a way to edit the name/text of a todo item when you click on it.
