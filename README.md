@@ -7,8 +7,8 @@
 By the end of this, students should be able to:
 
 - Structure a jquery app to manipulate dom elements
-- Append and remove items on a list  *Bonus*
-- Modify the status of items in a list  *Bonus*
+- Append and remove items on a list  - *Bonus*
+- Modify the status of items in a list - *Bonus*
 <hr>
 
 ## Here's a basic example of what we'll be building today 😺
