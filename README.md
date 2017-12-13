@@ -9,7 +9,7 @@ By the end of this, students should be able to:
 - Structure a jquery app to manipulate dom elements
 - Append items on a list
 - Modify the status of items in a list - *Bonus*
-- Remove Items on a list *Bonus*
+- Remove Items on a list - *Bonus*
 - Persist Items to ```localStorage``` *Bonus*
 <hr>
 
