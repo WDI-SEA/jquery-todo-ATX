@@ -3,23 +3,30 @@
   <head>
     <meta charset="utf-8">
     <title>My Todo List</title>
-    <!-- Don't forget to link your .js file -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
   </head>
   <body>
+    <div class = "container">
+		<h1>My To Do List</h1>
 
-		<h1>Grumpy Cat's To Do List</h1>
-    <!-- <img src="Grumpycat.jpg">  -->
-    <form id="postInputForm">
-      <input id="postInput" type="text" placeholder="Add to TO DO">
-      <button id="postSubmit" form="postInputForm" type="submit" value="submit">Post</button>
-    </form>
+    <div class = "row">
+      <div class = "col-md-6 offset-3">
+        <div class="text-center">
+          <form id="postInputForm">
+            <input id="postInput" type="text" placeholder="Add to TO DO" class="form-control">
+            <button id="postSubmit" form="postInputForm" type="submit" value="submit">Post</button>
+          </form>
+        </div>
+      </div>
+     </div> 
 
     <ul>
-      <li>look grumpy</li>
+     <!--  <li>look grumpy</li> -->
     </ul>
-
+    </div>
       <!-- This is a where you could add a <form>
       that accepts in <input> field,
       don't forget to add a submit button to your form  -->
