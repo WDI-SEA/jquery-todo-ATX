@@ -1,1 +1,36 @@
-/* Your CSS will go here */ 
+body {
+   width: 50%;
+   margin: 0 auto;
+   font-family: 'Oswald', sans-serif;
+}
+img {
+   display: block;
+   height: 150px;
+   width: 236px;
+   margin: 50px auto 0 auto;
+}
+ul {
+   list-style-type: none;
+}
+li {
+   font-size: 24px;
+   /*display: inline;*/
+}
+label {
+   display: inline;
+}
+.input-box {
+   height: 40px;
+   width: 355px;
+   border-radius: 5px;
+   font-size: 18px;
+   padding: 10px;
+}
+.input-button {
+   background-color: #1A3BE2;
+   color: white;
+   border-radius: 5px;
+   width: 100px;
+   height: 45px;
+   font-size: 18px;
+}

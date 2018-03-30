@@ -3,22 +3,27 @@
   <head>
     <meta charset="utf-8">
     <title>My Todo List</title>
-    <!-- Don't forget to link your .js file -->
-    <!-- Don't forget to link your .css file -->
+    <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,500" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
   </head>
   <body>
-
-		<h1>Header to reflect whatever you'd like to call your list</h1>
-
-
-      <!-- This is a where you could add a <form>
-      that accepts in <input> field,
-      don't forget to add a submit button to your form  -->
-
-
-    <!-- You also need a place to append your jQuery logic to the DOM (your list).
-    Perhaps you could try using tags such as <ol> or <ul> -->
-
-
-	</body>
+		<img src="../assets/Grumpy-Cat.jpg" />
+    <h1>To-do</h1>
+    <article class="entry">
+      <form id="entry-form">
+        <input type="text" class="input-box" autofocus />
+        <input type="submit" value="Add" class="input-button" id="submit-button" />
+      </form>
+    </article>
+    <article class="entries">
+      <ul id="entry-list">
+        <label class="container">One
+          <input type="checkbox">
+          <span class="checkmark"></span>
+        </label>
+      </ul>
+    </article>
+  <script src="app.js"></script>
+</body>
 </html>
