@@ -5,16 +5,20 @@ $(document).ready(function(){
  
 	// const chores = function (event) {
 	$("#submitButton").click((event) => {
-	event.preventDefault();
-	let getChore = $('#form1').val();
-	let newChore = $('<li>');
-	// newChore.innerHTML = getChore;
-	$("#list").append(newChore);
-	$(newChore).html("Cheshire's chore is" + getChore);
-	$('#form1').val('');
+	event.preventDefault();	
+	if($('#form1').val()){
+		let getChore = $('#form1').val();
+		let newChore = $('<li>');
+		// newChore.innerHTML = getChore;
+		$("#list").append(newChore);
+		$(newChore).html("Cheshire's chore is " + getChore);
+		$('#form1').val('');
+}
 	
 })
+
 });
+
 
 
 const addToLocalStorage = (item) => {
