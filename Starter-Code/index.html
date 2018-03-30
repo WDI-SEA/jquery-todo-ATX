@@ -1,24 +1,43 @@
+// Your jQuery Logic will go here
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
     <title>My Todo List</title>
-    <!-- Don't forget to link your .js file -->
-    <!-- Don't forget to link your .css file -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="style.css">
+         <link href="https://fonts.googleapis.com/css?family=Chelsea+Market|Syncopate" rel="stylesheet">
   </head>
   <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-8 offset-2">
+          <h1>My To Do List!</h1>
+          <div class="text-center">
+              <form id="addForm" method="post">
+                <input id="addTask" type="text" placeholder="Enter new task" class="form-control"><br>
+                <button id="submit-button" type="submit" >ADD</button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-sm-6">
+                <h2>JFDI</h2>
+                <ol id="outstanding">
+<!--                     <li>Grocery Shopping</li>
+ -->                </ol>
+              </div>
+            <div class="col-xs-12 col-sm-6">
+                <h2>Done AF</h2>
+                <ol id="done">
+                    <!-- <li>Homework</li> -->
+                </ol>
+              </div>
+        </div>
 
-		<h1>Header to reflect whatever you'd like to call your list</h1>
-
-
-      <!-- This is a where you could add a <form>
-      that accepts in <input> field,
-      don't forget to add a submit button to your form  -->
-
-
-    <!-- You also need a place to append your jQuery logic to the DOM (your list).
-    Perhaps you could try using tags such as <ol> or <ul> -->
-
-
-	</body>
+    </div>
+  </body>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="app.js"></script>
 </html>
