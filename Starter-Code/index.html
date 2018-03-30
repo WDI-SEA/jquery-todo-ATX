@@ -4,12 +4,21 @@
     <meta charset="utf-8">
     <title>My Todo List</title>
     <!-- Don't forget to link your .js file -->
-    <!-- Don't forget to link your .css file -->
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
   </head>
   <body>
 
-		<h1>Header to reflect whatever you'd like to call your list</h1>
+		<h1>Grumpy Cat's To Do List</h1>
+    <!-- <img src="Grumpycat.jpg">  -->
+    <form id="postInputForm">
+      <input id="postInput" type="text" placeholder="Add to TO DO">
+      <button id="postSubmit" form="postInputForm" type="submit" value="submit">Post</button>
+    </form>
 
+    <ul>
+      <li>look grumpy</li>
+    </ul>
 
       <!-- This is a where you could add a <form>
       that accepts in <input> field,
@@ -18,7 +27,11 @@
 
     <!-- You also need a place to append your jQuery logic to the DOM (your list).
     Perhaps you could try using tags such as <ol> or <ul> -->
-
+<script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+  <script src="app.js"></script> 
 
 	</body>
 </html>
