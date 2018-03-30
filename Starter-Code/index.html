@@ -6,21 +6,26 @@
 
     <title>My Todo List</title>
     <link href="https://fonts.googleapis.com/css?family=Chicle" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossormargin: 0 auto;igin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="style.css">
   </head>
   <body>
 
 		<h1>Cheshire Cat's To-Do List</h1>
 
-    <form id = "myForm">
-      <input id = "form1" type = "text" placeholder = "Type your chores here"></input>
-      <input id = "submitButton" type = "submit" value = "Submit"></input>
+    <form id = "myForm" method = "post">
+      <input id = "form1" type = "text" placeholder = "Type your chores here">
+      <br>
+    <button id = "submitButton" type = "text" value = "Submit">Add Chore</button>
     </form>
 
-    <img id = "cat" src = "cheshire_cat.png" style="display:none">
-
-
+    <img id = "cat" src = "cheshire_cat.png">
+ 
+    <div>
+    <ol id = "list">
+      
+    </ol>
+    </div>
 
 
 

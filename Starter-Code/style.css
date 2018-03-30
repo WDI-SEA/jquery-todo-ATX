@@ -37,6 +37,7 @@ img {
 	font-family: "Chicle", cursive;
 	color: black;
 	font-size: 20px;
+	border: 10px solid #FF69B4;
 
 }
 
@@ -47,7 +48,30 @@ img {
 	border-radius: 10px;
 	font-size: 20px;
 	float: right;
-	margin-right: -700px;
-	margin-top: 200px;
+	margin-right: -720px;
+	margin-top: 170px;
+	border: 10px solid #FF69B4;
+	color: black;
+	font-family: "Chicle", cursive;
 	
+}
+
+#list {
+	width: 50%;
+	background: white;
+	text-align: left;
+	padding: 60px 0 60px 0;
+	border-radius: 15px;
+	position: relative;
+	border: 10px solid #FF69B4;
+	font-family: 'Chicle', cursive;
+	font-size: 20px;
+	float: right;
+	margin-top: 30px;
+	margin-right: 60px;
+	color: black;
+}
+
+#cat {
+	display: none;
 }
