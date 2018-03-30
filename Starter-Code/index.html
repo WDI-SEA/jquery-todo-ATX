@@ -1,24 +1,35 @@
 <!DOCTYPE html>
 <html>
   <head>
+   
     <meta charset="utf-8">
+   
     <title>My Todo List</title>
-    <!-- Don't forget to link your .js file -->
-    <!-- Don't forget to link your .css file -->
+    <link href="https://fonts.googleapis.com/css?family=Chicle" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossormargin: 0 auto;igin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style.css">
   </head>
   <body>
 
-		<h1>Header to reflect whatever you'd like to call your list</h1>
+		<h1>Cheshire Cat's To-Do List</h1>
+
+    <form id = "myForm">
+    <input id = "form1" type = "text" placeholder = "Type your chores here"></input>
+    <input id = "submitButton" type = "submit" value = "Submit"></input>
+   </form>
+
+   <img id = "cat" src = "cheshire_cat.png">
+   
+    
 
 
-      <!-- This is a where you could add a <form>
-      that accepts in <input> field,
-      don't forget to add a submit button to your form  -->
+     
 
 
     <!-- You also need a place to append your jQuery logic to the DOM (your list).
     Perhaps you could try using tags such as <ol> or <ul> -->
 
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="app.js"></script>
 	</body>
 </html>

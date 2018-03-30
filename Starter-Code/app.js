@@ -1,1 +1,2 @@
-// Your jQuery Logic will go here
+ $( "#cat" ).fadeIn( "slow", function() {
+  });
