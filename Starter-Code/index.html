@@ -3,24 +3,33 @@
   <head>
     <meta charset="utf-8">
     <title>My Todo List</title>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="app.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
   </head>
   <body background="http://www.pptback.com/uploads/borders-frames-notepad-backgrounds-powerpoint.jpg">
     <div class="spacer"> <!-- header space top of page --> </div>
-    <div class="container">
+    <div class="container.fluid">
       <div class="row">
-        <div class="col">
+        <div class="col-6">
       		<h1>Daily TODO</h1>
-          <!-- form with input box -->
+          <form id="submit-form">
+            <label></label>
+            <input id="input-box" type="text" placeholder="Task goes here" autofocus>
+
+            <!-- <input id="" type="text" placeholder="Due by"> -->
+            <button type="submit" form="submit-form" value="Submit">Add to list</button>
+          </form>
+          <!-- <button type="submit" form="submit-form" value="Submit">Add to list</button> -->
         </div>
 
-        <div class="col">
-          <!-- outputted list of stuff to do -->
+        <div class="col-5">
+          <ol id="toDoList">
+             <!-- listed items show here  -->
+          </ol>
         </div>
       </div>
     </div>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="app.js"></script>
 	</body>
 </html>
