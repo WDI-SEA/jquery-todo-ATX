@@ -5,23 +5,43 @@
   <meta charset="utf-8">
   <title>My Todo List</title>
   <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-
-  <div id='container'>
-    <h1>When to watch guide
-      <i class="fas fa-film"></i>
-    </h1>
-    <input type="text" placeholder="Add New ToDo">
-    <input type="submit" name="" id="">
-    <ul>
-      <!-- <li><span><i class="fa fa-trash"></i></span> Kill Harry Potter</li>
+  <nav>
+    <div class="nav-wrapper">
+      <a href="#!" class="brand-logo">help me binge</a>
+      <ul class="right hide-on-med-and-down">
+        <li>
+          <a href="#">
+            <i class="left"></i>Login</a>
+        </li>
+        <li>
+          <a href="#">
+            <i class=" right"></i>Sign up</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="nav-wrapper">
+    <form id="addForm">
+      <div class="input-field">
+        <input id="search" type="search" required>
+        <label class="label-icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <i class="material-icons">close</i>
+      </div>
+    </form>
+  </div>
+  <ul id="movieUl">
+    <!-- <li><span><i class="fa fa-trash"></i></span> Kill Harry Potter</li>
           <li><span><i class="fa fa-trash"></i></span> Get Dinner</li>
           <li><span><i class="fa fa-trash"></i></span> Take Over World</li> -->
-    </ul>
+  </ul>
   </div>
 
 

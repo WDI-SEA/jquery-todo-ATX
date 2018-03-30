@@ -1,20 +1,28 @@
+$(document).ready( ()=> {
+    getLocalStorage()
+    checkForDeletions()
+    updateLists()
+
+})
+let movieList = {};
+
+
+
+// add new movie item
 const addNewMovie = (e) => {
-    if (e.which === 13) {
-        console.log(e.target.value)
-    }  else if (e.type === 'click') {
-        const newMovie = $('input:first').val()
-        console.log(newMovie)
-    }
+    e.preventDefault()
+    console.log(e)
+    const newMovie = $('#search').val()
+    console.log(e.timeStamp)
+    movieList.timeStamp = e.timeStamp
+    movieList.title = $('#search').val() 
+    $('#search').val('')
+    $('#movieUl').append(
+        '<li>' + newMovie + '<span><i class="fas fa-check hide"></i></span></li>'
+    )
 }
 
+// setting local storage
 
-
-
-
-
-
-
-
-
-$('input').keypress(addNewMovie)
-$("input[type='submit']").click(addNewMovie)
+$()
+$('#addForm').submit(addNewMovie)
