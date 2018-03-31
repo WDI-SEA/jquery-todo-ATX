@@ -7,6 +7,10 @@ $('#postInputForm').on('submit', (e) => {
 	console.log($('#postInput').val());
 	$('ul').append("<li>" + $('#postInput').val() + "</li>");
 	$('#postInput').val('');
+
+	$('li').on('click', (e) => {
+		console.log('list item was clicked');
+		$('li').css("text-decoration", "line-through");
+	})
 });
 	
-

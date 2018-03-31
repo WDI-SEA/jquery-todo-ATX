@@ -8,6 +8,14 @@ h1 {
 	font-size: 120px;
 	color: #aad7f7;
 }
+h4 {
+	font-family: 'Shadows Into Light', cursive;
+	color: #B88C8C;
+	text-align: center;
+	margin-top: -20px;
+	margin-bottom: 10px;
+
+}
 ul {
 	list-style: none;
 	text-align: center;
