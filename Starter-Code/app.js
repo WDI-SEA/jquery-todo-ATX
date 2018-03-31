@@ -6,7 +6,7 @@ const getLocalStorage = () => {
    if (savedPostsStr) {
       entriesObj = JSON.parse(savedPostsStr);
       for (let key in entriesObj) {
-         $('#entry-list').append(`<label><input type='checkbox'><span class='checkmark'><li>${entriesObj[key].value}</span></label></li><br>`);
+         $('#entry-list').append(`<label><li><i class="far fa-square"></i>&nbsp;&nbsp;${entriesObj[key].value}</li></label>`);
       };
    };
 }
@@ -16,13 +16,18 @@ const setLocalStorage = (entriesObj) => {
 }
 
 const deleteEntry = () => {
+   // <i class="far fa-check-square"></i>
+   console.log('clicked delete');
 
 }
 
 const listenForEntryDeletions = () => {
    let closeButtonsArr = $('.remove-item');
-   for (let i = 0; i < closeButtonsArr.length; i++) {
-      closeButtonsArr[i].click(deleteEntry);
+   // for (let i = 0; i < closeButtonsArr.length; i++) {
+   //    closeButtonsArr[i].click(deleteEntry);
+   // };
+   jQuery.each(closeButtonsArr), function(index,value) {
+      closeButtonsArr[index].click(deleteEntry);
    };
 }
 
@@ -40,7 +45,7 @@ const updateList = () => {
             entriesObj[objLength] = {};
             entriesObj[objLength].value = postText;
          }
-         $('ul').append(`<label><li>${postText}</li></label>`);
+         $('ul').append(`<label><li><i class="far fa-square"></i>&nbsp;&nbsp;${postText}</li></label>`);
          $('.input-box').val('');
       };
       setLocalStorage(entriesObj);
