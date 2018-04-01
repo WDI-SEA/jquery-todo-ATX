@@ -1,12 +1,10 @@
 $( document ).ready(function() {
 	let postCount = 0;
-	let listObj = {};
+	let listArr = [];
 	let sortingMethod = "byOldest";
 
 
-	// if there's a value in the input field and the user submits, will add the
-	// value into the master object and display the list based on the selected
-	// sorting method, then clear the form
+	// if there's a value in the input field and the user submits, will add the value into the master array and display the list based on the selected sorting method, then clear the form
 	$("#form1").on("submit", (e) => {
 		e.preventDefault();
 		if ($("#inputList").val()) {
@@ -38,12 +36,12 @@ $( document ).ready(function() {
 	// resets the list and counter
 	$("#reset").on("click", () => {
 		$("#myList").empty();
-		listObj = {};
+		listArr = [];
 		postCount = 0;
 		$("#postCount").text(postCount);
 	})
 
-	// creates the list based on the master object and selected sorting option
+	// creates the list based on the master array and selected sorting option
 	const createList = () => {
 		$("#myList").empty();
 		document.getElementById("form1").reset();
@@ -60,43 +58,34 @@ $( document ).ready(function() {
 		}
 	}
 
-	// creates a new list item and stores it in a master object into its own 
-	// object that contains the value written into the field, the order in 
-	// which it was written, and the date and time when it was written
+	// creates a new list item and stores it in a master array into its own object that contains the value written into the field, the order in which it was written, and the date and time when it was written
 	const addItemToObject = () => {
-		let objNum = Object.keys(listObj).length;
 		let myTime = new Date().toLocaleString();
-		listObj[objNum] = {};
-		listObj[objNum].value = $("#inputList").val();
-		listObj[objNum].time = myTime;
+		listArr.push({
+			value: $("#inputList").val(),
+			time: myTime
+		})
 	}
 
-	// for every item that was inserted into the master object, create a list
-	// element with an id based on the object key within the master object
-	// a shared "list-items" class, the string that was inputted, and append
-	// that element to the <ul>
+	// for every item that was inserted into the master array, create a list element with an id based on the index within the master array, a shared "list-items" class, the string that was inputted, and append that element to the <ul>
 	const sortFromOldest = () => {
-		for(key in listObj){
-			$("<li>",{
-			    text: listObj[key].value,
-			    class: "list-items",
-			    id: "list-" + key
-			}).appendTo("#myList");
+		for(let i = 0; i < listArr.length; i++){
+			appendToList(i)
 		}
 	}
 
 	const sortFromNewest = () => {
-		let reverseOrder = [];
-		for(key in listObj){
-			reverseOrder += key;
+		for(let i = listArr.length-1; i >= 0; i--){
+			appendToList(i)
 		}
-		for (let i = reverseOrder.length-1; i >= 0; i--) {
-			$("<li>",{
-			    text: listObj[i].value,
-			    class: "list-items",
-			    id: "list-" + i 		//might need to change
-			}).appendTo("#myList");
-		}
+	}
+
+	const appendToList = (i) => {
+		$("<li>",{
+		    text: listArr[i].value,
+		    class: "list-items",
+		    id: "list-" + i 
+		}).appendTo("#myList");
 	}
 
 
