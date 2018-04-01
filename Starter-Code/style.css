@@ -6,4 +6,26 @@
     letter-spacing: 2.0px;
     text-transform: uppercase;
     font-weight: 600;
+    /* padding is not working in css but does in console??? */
+    padding-left: 20px;
+}
+
+span {
+    opacity: 0;
+
+}
+
+li:hover span {
+    width: 40px;
+    opacity: 1;
+    padding-left: 10px;
+}
+
+.completed {
+    color: grey;
+    text-decoration: line-through;
+}
+
+ul li {
+    padding-left: 20px;
 }
