@@ -1,8 +1,13 @@
 $( document ).ready(function() {
 	let postCount = 0;
+	if (localStorage.getItem("postCount")){
+		postCount = JSON.parse(localStorage.getItem("postCount"));
+	}
 	let listArr = [];
-	let sortingMethod = "byOldest";
-
+	if (localStorage.getItem("listArr")){
+		listArr = JSON.parse(localStorage.getItem("listArr"));
+	}
+	let sortingMethod = "byNewest";
 
 	// if there's a value in the input field and the user submits, will add the value into the master array and display the list based on the selected sorting method, then clear the form
 	$("#form1").on("submit", (e) => {
@@ -12,6 +17,8 @@ $( document ).ready(function() {
 			$("#postCount").text(postCount);
 			addItemToObject();
 			createList();
+			localStorage.setItem("listArr", JSON.stringify(listArr));
+			localStorage.setItem("postCount", JSON.stringify(postCount));
 		} else { alert("Nothing to add :(") }
 	})
 
@@ -39,6 +46,8 @@ $( document ).ready(function() {
 		listArr = [];
 		postCount = 0;
 		$("#postCount").text(postCount);
+		localStorage.removeItem("listArr");
+		localStorage.removeItem("postCount");
 	})
 
 	// creates the list based on the master array and selected sorting option
@@ -88,5 +97,6 @@ $( document ).ready(function() {
 		}).appendTo("#myList");
 	}
 
-
+	createList();
+	$("#postCount").text(postCount);
 });

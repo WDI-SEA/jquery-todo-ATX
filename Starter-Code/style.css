@@ -1,0 +1,27 @@
+body {
+	background-color: #b2b2b2;
+	padding: 50px 0;
+}
+.container { 
+text-align: center; 
+width: 30%;
+/*border: solid black 1px;*/
+border-radius: 10px;
+background-color: gray;
+}
+ul {
+	list-style-type: none;
+	padding: 0;
+	margin: 60px 0 20px 0;
+}
+.btnSpacing {
+	margin: 10px 0;
+}
+.icon {
+	padding: 0 10px;
+}
+li {
+	background-color: white;
+	margin: 5px 0;
+	border-radius: 5px;
+}
