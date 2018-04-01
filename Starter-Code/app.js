@@ -22,22 +22,20 @@ const setLocalStorage = (entriesObj) => {
  }
 
 
-// add new movie item
+// add new movie title to watch 
 $('#addForm').submit((e) => {
     e.preventDefault()
-    // console.log(e)
+    
     const newMovie = $('#search').val()
-    // console.log(e.timeStamp)
+
     movieList.timeStamp = e.timeStamp
     movieList.title = $('#search').val() 
     $('#search').val('')
     $('#movieUl').append
-    (   // does jQuery not accept template literals?
+    (   // does jQuery not accept template literals? idk why it worked ealier
         '<li class="listItem">' + newMovie + '<span><i class="fas fa-check "></i></span></li>'
     )
-    $('.list-item').hover(()=>{
-        console.log('hover')
-    })
+
     // add new item to local storage
     setLocalStorage(newMovie)
 })
@@ -59,4 +57,3 @@ $('ul').on('click', 'span', function() {
 })
 
 
-// $('#addForm').submit(addNewMovie)
