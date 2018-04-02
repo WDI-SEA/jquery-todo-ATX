@@ -15,6 +15,7 @@ h2 {
     border-width: 5px;  
     border-style: solid;
     padding: 10px;
+    text-align: center;
 }
 
 input {
