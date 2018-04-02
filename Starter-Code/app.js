@@ -9,17 +9,12 @@ submitForm.submit(function(e) {
 	let inputText = $("#input-box").val();
 	
 	$('#toDoList').append(
-    	$('<li>').append(inputText)      
+    	$('<li>').append(inputText + ": do before " + $("#weekday").val())      
 	);
 	document.forms['submit-form'].reset()
 });
 
-var element = document.getElementById('toDoList');
-
-$("<li>").click(function(element) {
-	// element.removeChild(element);
-	console.log("clicked list")
-})
+// var element = document.getElementById('toDoList');
 
 
 // submitForm.addEventListener("submit", function(e){
