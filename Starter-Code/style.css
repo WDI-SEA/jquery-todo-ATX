@@ -2,7 +2,7 @@
     display: none;
 }
 
-.brand-logo {
+a.brand-logo {
     letter-spacing: 2.0px;
     text-transform: uppercase;
     font-weight: 600;
