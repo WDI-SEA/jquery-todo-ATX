@@ -1,1 +1,42 @@
 /* Your CSS will go here */ 
+body {
+	background-image: url("bananas.jpg");
+} 
+h1 {
+	text-align: center;
+	font-size: 3em;
+	font-family: 'Syncopate', sans-serif;
+	margin-top: 100px;
+	font-weight: bolder;
+}
+h2 {
+	font-family: 'Syncopate', sans-serif;
+    color: grey;
+    border-width: 5px;  
+    border-style: solid;
+    padding: 10px;
+    text-align: center;
+}
+
+input {
+    font-family: 'Chelsea Market', cursive;
+    text-align: center;
+    margin: 20px;
+    padding: 10px 40px;
+}
+
+button {
+    margin: 0px 0px 30px 0px;
+    border-radius: 12px;
+    padding: 8px 28px;
+    background-color: grey;
+    font-family: 'Syncopate', sans-serif;
+    font-weight: bolder;
+
+}
+
+li {
+	font-family: 'Chelsea Market', cursive;
+	text-align: left;
+
+}
