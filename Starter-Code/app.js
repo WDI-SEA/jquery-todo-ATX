@@ -23,8 +23,14 @@ $( document ).ready(function() {
 	})
 
 	// sorts the list as newest on top
-	$("#sortFromNewest").on("click", () => {
+	$("#sortFromNewest").on("click", (e) => {
 		sortingMethod = "byNewest";
+        // if ($("button").hasClass("btn-default")) {
+        // 	console.log("has class");
+        // 	$(e.target).removeClass("btn-default");
+        // 	$(e.target).addClass("btn-primary");
+        // 	$("#sortFromOldest").removeClass("btn-primary").addClass("btn-default");
+        // }
 		if ($("#inputList").val()) {
 			addItemToObject();
 		}
@@ -32,8 +38,14 @@ $( document ).ready(function() {
 	})
 
 	// sorts the list as oldest on top
-	$("#sortFromOldest").on("click", () => {
+	$("#sortFromOldest").on("click", (e) => {
 		sortingMethod = "byOldest";
+		// if ($(e.target).hasClass(".btn-default")) {
+		// 	console.log("has class");
+  // 		 	$(e.target).removeClass("btn-default");
+  // 			$(e.target).addClass("btn-primary");
+  // 		 	$("#sortFromNewest").removeClass("btn-primary").addClass("btn-default");
+  // 		 }
 		if ($("#inputList").val()) {
 			addItemToObject();
 		}
@@ -49,6 +61,49 @@ $( document ).ready(function() {
 		localStorage.removeItem("listArr");
 		localStorage.removeItem("postCount");
 	})
+
+	let delay = 300, clicks = 0, timer = null;
+    $("body").on("click", ".list-items", (e) => {
+    	let crossedItem = e.target.id.replace(/([^0-9])*/g, "");
+        clicks++;
+        if(clicks === 1) {
+            timer = setTimeout(() => {
+            	if ($(e.target).hasClass("lineThrough")) {
+                	$(e.target).removeClass("lineThrough");
+                	listArr[crossedItem].crossed = false;
+            	} else {
+            		$(e.target).addClass("lineThrough");
+            		listArr[crossedItem].crossed = true;
+            	}
+            	localStorage.setItem("listArr", JSON.stringify(listArr));
+                clicks = 0;
+            }, delay);
+
+        } else {
+            clearTimeout(timer);
+            listArr.splice(crossedItem, 1);
+            postCount--;
+            $("#postCount").text(postCount);
+            createList();
+            localStorage.setItem("postCount", JSON.stringify(postCount));
+            localStorage.setItem("listArr", JSON.stringify(listArr));
+            clicks = 0;
+        }
+    })
+    .on("dblclick", ".list-items", (e) => {
+        e.preventDefault();
+    });
+
+   //  const makePrimary = (e) => {
+   //  	if ($(".btn").hasClass("btn-primary")) {
+			// $(".btn").removeClass("btn-primary");
+	  //       $(".btn").addClass("btn-default");
+   //  	}
+   //      if ($(e.target).hasClass("btn-default")) {
+   //      	$(e.target).removeClass("btn-default");
+   //      	$(e.target).addClass("btn-primary");
+   //      }
+   //  }
 
 	// creates the list based on the master array and selected sorting option
 	const createList = () => {
@@ -72,7 +127,8 @@ $( document ).ready(function() {
 		let myTime = new Date().toLocaleString();
 		listArr.push({
 			value: $("#inputList").val(),
-			time: myTime
+			time: myTime,
+			crossed: false
 		})
 	}
 
@@ -95,6 +151,13 @@ $( document ).ready(function() {
 		    class: "list-items",
 		    id: "list-" + i 
 		}).appendTo("#myList");
+		$("<span>",{
+		    class: "glyphicon glyphicon-remove removeIcon",
+		    id: "listSpan-" + i 
+		}).appendTo("#list-" + i);
+		if (listArr[i].crossed === true) {
+			$("#list-" + i).addClass("lineThrough");
+		}
 	}
 
 	createList();
