@@ -1,8 +1,36 @@
-let choreList = [];
+let choreList = {};
 
 $(document).ready(function(){
   $("#cat").fadeIn(4000);
+  
  
+
+
+});
+
+
+
+const addToLocalStorage = (item) => {
+	localStorage.setItem('choreList', JSON.stringify(item));
+}
+
+const getFromLocalStorage = () => {
+	let savedChore = localStorage.getItem('choreList')
+	if (savedChore){
+		choreList = JSON.parse(savedChore);
+	for(let key in choreList) {
+		$('#list').append('<li> ${choreList[key].task}');
+		
+
+	};
+
+
+};
+
+	console.log(choreList, typeof choreList);
+
+};
+
 	// const chores = function (event) {
 	$("#submitButton").click((event) => {
 	event.preventDefault();	
@@ -10,32 +38,16 @@ $(document).ready(function(){
 		let getChore = $('#form1').val();
 		let newChore = $('<li>');
 		// newChore.innerHTML = getChore;
+		choreList.task = getChore
+		choreList.timeStamp = event .timeStamp
 		$("#list").append(newChore);
 		$(newChore).html("Cheshire's chore is " + getChore);
 		$('#form1').val('');
-}
+		console.log(choreList);
+		
 	
-})
-
+};
 });
-
-
-
-const addToLocalStorage = (item) => {
-	choreList.push(item)
-	localStorage.setItem("LSChores", JSON.stringify(choreList));
-	console.log("adding to storage");
-};
-
-const getFromLocalStorage = () => {
-	console.log("getting from local storage");
-	choreList = JSON.parse(localStorage.getItem("LSChores")) || [];
-
-	console.log(choreList, typeof choreList);
-
-};
-
-
 
 
 
