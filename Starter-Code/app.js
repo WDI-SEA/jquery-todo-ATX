@@ -25,12 +25,10 @@ $( document ).ready(function() {
 	// sorts the list as newest on top
 	$("#sortFromNewest").on("click", (e) => {
 		sortingMethod = "byNewest";
-        // if ($("button").hasClass("btn-default")) {
-        // 	console.log("has class");
-        // 	$(e.target).removeClass("btn-default");
-        // 	$(e.target).addClass("btn-primary");
-        // 	$("#sortFromOldest").removeClass("btn-primary").addClass("btn-default");
-        // }
+        if (!$("#sortFromNewest").hasClass("btn-primary")) {
+        	$("button").removeClass("btn-primary");
+        	$("#sortFromNewest").addClass("btn-primary");
+        }
 		if ($("#inputList").val()) {
 			addItemToObject();
 		}
@@ -40,17 +38,19 @@ $( document ).ready(function() {
 	// sorts the list as oldest on top
 	$("#sortFromOldest").on("click", (e) => {
 		sortingMethod = "byOldest";
-		// if ($(e.target).hasClass(".btn-default")) {
-		// 	console.log("has class");
-  // 		 	$(e.target).removeClass("btn-default");
-  // 			$(e.target).addClass("btn-primary");
-  // 		 	$("#sortFromNewest").removeClass("btn-primary").addClass("btn-default");
-  // 		 }
+        if (!$("#sortFromOldest").hasClass("btn-primary")) {
+        	$("button").removeClass("btn-primary");
+        	$("#sortFromOldest").addClass("btn-primary");
+        }
 		if ($("#inputList").val()) {
 			addItemToObject();
 		}
 		createList();
 	})
+
+	// $("#sortFromAtoZ").on("click", (e) => {
+	// 	sortAtoZ();
+	// })
 
 	// resets the list and counter
 	$("#reset").on("click", () => {
@@ -94,17 +94,6 @@ $( document ).ready(function() {
         e.preventDefault();
     });
 
-   //  const makePrimary = (e) => {
-   //  	if ($(".btn").hasClass("btn-primary")) {
-			// $(".btn").removeClass("btn-primary");
-	  //       $(".btn").addClass("btn-default");
-   //  	}
-   //      if ($(e.target).hasClass("btn-default")) {
-   //      	$(e.target).removeClass("btn-default");
-   //      	$(e.target).addClass("btn-primary");
-   //      }
-   //  }
-
 	// creates the list based on the master array and selected sorting option
 	const createList = () => {
 		$("#myList").empty();
@@ -139,6 +128,29 @@ $( document ).ready(function() {
 		}
 	}
 
+	// const sortAtoZ = () => {
+	// 	let tempArray = [];
+	// 	let sortedArray = [];
+	// 	listArr.forEach(val => {
+	// 		tempArray.push(val.value)
+	// 	})
+	// 	sortedArray = tempArray.sort();
+	// 	tempArray = [];
+	// 	for(let i = 0; i < sortedArray.length; i++){
+	// 		for (let j = 0; j < listArr.length; j++) {
+	// 			for (let key in listArr[j]){
+	// 				if (listArr[j][key] === sortedArray[i]) {
+	// 					tempArray.push([sortedArray[i], listArr[j].id]);
+	// 				}
+	// 			}
+	// 		}
+	// 	}
+	// 	for(let k = 0; k < tempArray.length; k++){
+	// 		console.log(k);
+	// 		//appendToList(k)
+	// 	}
+	// }
+
 	const sortFromNewest = () => {
 		for(let i = listArr.length-1; i >= 0; i--){
 			appendToList(i)
@@ -158,6 +170,7 @@ $( document ).ready(function() {
 		if (listArr[i].crossed === true) {
 			$("#list-" + i).addClass("lineThrough");
 		}
+		listArr[i].id = i;
 	}
 
 	createList();
