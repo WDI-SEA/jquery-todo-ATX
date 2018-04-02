@@ -1,5 +1,5 @@
 console.log("js is working!");
-
+const storedStuff = [];
 
 $('#postInputForm').on('submit', (e) => {
 	e.preventDefault();
@@ -13,4 +13,9 @@ $('#postInputForm').on('submit', (e) => {
 		$('li').css("text-decoration", "line-through");
 	})
 });
+
+const addToLocalStorage = (listItem) => {
+	localStorage.setItem('inBrowser', JSON.stringify(listItem));
+	
+}
 	
