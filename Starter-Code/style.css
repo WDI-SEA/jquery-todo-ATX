@@ -1,1 +1,26 @@
 /* Your CSS will go here */ 
+
+
+.spacer {
+	height: 180px;
+}
+
+h1 {
+	text-align: center;
+}
+
+form {
+	text-align: center;
+}
+
+#toDoList {
+	font-size: 20px;
+}
+li {
+	padding-bottom: 17px;
+	word-wrap: break-word;
+}
+
+/*#due-by {
+	display: inline;
+}*/

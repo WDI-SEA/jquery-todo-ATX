@@ -2,23 +2,46 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Todo List</title>
-    <!-- Don't forget to link your .js file -->
-    <!-- Don't forget to link your .css file -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
   </head>
-  <body>
+  <body background="http://www.pptback.com/uploads/borders-frames-notepad-backgrounds-powerpoint.jpg">
+    <div class="spacer"> <!-- header space top of page --> </div>
+    <div class="container.fluid">
+      <div class="row">
+        <div class="col-6">
+      		<h1>Daily TODO</h1>
+          <form id="submit-form">
+            <label></label>
+            <input id="input-box" type="text" placeholder="Task goes here" autofocus>
 
-		<h1>Header to reflect whatever you'd like to call your list</h1>
+            <!-- <input id="" type="text" placeholder="Due by"> -->
+            <div class="form-group">
+              <label id="due-by">Do Before:</label>
+              <select id="weekday">
+                <option>Sunday</option>
+                <option>Monday</option>
+                <option>Tuesday</option>
+                <option>Wedsnesday</option>
+                <option>Thursday</option>
+                <option>Friday</option>
+                <option>Saturday</option>
+              </select>
+            </div>
+            <button type="submit" form="submit-form" value="Submit">Add to list</button>
+          </form>
+        </div>
 
-
-      <!-- This is a where you could add a <form>
-      that accepts in <input> field,
-      don't forget to add a submit button to your form  -->
-
-
-    <!-- You also need a place to append your jQuery logic to the DOM (your list).
-    Perhaps you could try using tags such as <ol> or <ul> -->
-
-
+        <div class="col-5">
+          <ol id="toDoList">
+             <!-- listed items show here  -->
+          </ol>
+        </div>
+      </div>
+    </div>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="app.js"></script>
 	</body>
 </html>
