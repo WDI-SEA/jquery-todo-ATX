@@ -50,28 +50,30 @@ $( document ).ready(function() {
 		}
 		createList();
 	}
-	// $("#sortFromAtoZ").on("click", () => {
-	// 	sortingMethod = "byAtoZ";
-	// 	localStorage.setItem("sortingMethod", JSON.stringify(sortingMethod));
- //        if (!$("#sortFromAtoZ").hasClass("btn-primary")) {
-	//     	$("button").removeClass("btn-primary");
-	//     	$("#sortFromAtoZ").addClass("btn-primary");
- //        }
- //        if ($("#inputList").val()) {
-	// 		addItemToObject();
-	// 	}
-	// 	createList();
-	// })
+	$("#sortFromAtoZ").on("click", () => {
+		sortingMethod = "byAtoZ";
+		localStorage.setItem("sortingMethod", JSON.stringify(sortingMethod));
+        if (!$("#sortFromAtoZ").hasClass("btn-primary")) {
+	    	$("button").removeClass("btn-primary");
+	    	$("#sortFromAtoZ").addClass("btn-primary");
+        }
+        if ($("#inputList").val()) {
+			addItemToObject();
+		}
+		createList();
+	})
 
 	// resets the list and counter
 	$("#reset").on("click", () => {
 		$("#myList").empty();
 		listArr = [];
 		postCount = 0;
+		sortingMethod = "byNewest";
+		sortButton($("#sortFromNewest"), "byNewest");
 		$("#postCount").text(postCount);
 		localStorage.removeItem("listArr");
 		localStorage.removeItem("postCount");
-		//sortingMethod = "byNewest";
+		localStorage.removeItem("sortingMethod");
 	})
 
 	let delay = 300, clicks = 0, timer = null;
@@ -121,9 +123,9 @@ $( document ).ready(function() {
 			case "byNewest":
 				sortFromNewest();
 				break;
-			// case "byAtoZ":
-			// 	sortAtoZ();
-			// 	break;
+			case "byAtoZ":
+				sortAtoZ();
+				break;
 			default:
 				console.log("sortingMethod variable value missing")
 				break;
@@ -158,41 +160,40 @@ $( document ).ready(function() {
 		}
 	}
 
-	// const sortAtoZ = () => {
-		// let tempArray = [];
-		// let sortedArray = [];
-		// listArr.forEach(val => {
-		// 	tempArray.push(val.value)
-		// })
-		// sortedArray = tempArray.sort();
-		// tempArray = [];
-		// for(let i = 0; i < sortedArray.length; i++){
-		// 	for (let j = 0; j < listArr.length; j++) {
-		// 		for (let key in listArr[j]){
-		// 			if (listArr[j][key] === sortedArray[i]) {
-		// 				tempArray.push([sortedArray[i], listArr[j].id, j]);
-		// 			} 
-		// 		}
-		// 	}
-		// }
-		// let temp = 0;
-		// for(let k = 0; k < tempArray.length; k++){
-		// 	temp = tempArray[k][2];
-		// 	console.log(tempArray[k][2]);
-		// 	$("<li>",{
-		// 	    text: tempArray[k][0],
-		// 	    class: "list-items",
-		// 	    id: "list-" + listArr[temp]
-		// 	}).appendTo("#myList");
-		// 	$("<span>",{
-		// 	    class: "glyphicon glyphicon-remove removeIcon",
-		// 	    id: "listSpan-" + listArr[temp]
-		// 	}).appendTo("#list-" + listArr[temp]);
-		// 	if (listArr[temp].crossed === true ) {
-		// 		$("#list-" + listArr[temp] ).addClass("lineThrough");
-		// 	}
-		// }
-	// }
+	const sortAtoZ = () => {
+		let tempArray = [];
+		let sortedArray = [];
+		listArr.forEach(val => {
+			tempArray.push(val.value)
+		})
+		sortedArray = tempArray.sort();
+		tempArray = [];
+		for(let i = 0; i < sortedArray.length; i++){
+			for (let j = 0; j < listArr.length; j++) {
+				for (let key in listArr[j]){
+					if (listArr[j][key] === sortedArray[i]) {
+						tempArray.push([sortedArray[i], listArr[j].id, j]);
+					} 
+				}
+			}
+		}
+		let temp = 0;
+		for(let k = 0; k < tempArray.length; k++){
+			temp = tempArray[k][2];
+			$("<li>",{
+			    text: tempArray[k][0],
+			    class: "list-items",
+			    id: "list-" + temp
+			}).appendTo("#myList");
+			$("<span>",{
+			    class: "glyphicon glyphicon-remove removeIcon",
+			    id: "listSpan-" + temp
+			}).appendTo("#list-" + temp);
+			if (listArr[temp].crossed === true ) {
+				$("#list-" + temp).addClass("lineThrough");
+			}
+		}
+	}
 
 	const appendToList = (i) => {
 		$("<li>",{
@@ -210,6 +211,8 @@ $( document ).ready(function() {
 	}
 	if (sortingMethod === "byOldest"){
 		sortButton($("#sortFromOldest"), "byOldest");
+	} else if (sortingMethod === "byAtoZ"){
+		sortButton($("#sortFromAtoZ"), "byAtoZ");
 	}
 	createList();
 	$("#postCount").text(postCount);
