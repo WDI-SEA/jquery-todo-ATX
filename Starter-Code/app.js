@@ -21,7 +21,7 @@ const listenForEntryDeletions = () => {
    //jQuery-ify the code below
    let toDoCheckboxArr = document.getElementsByClassName("todo-list-item");
    for (let i = 0; i < toDoCheckboxArr.length; i++) {
-      toDoCheckboxArr[i].addEventListener("click",checkOffEntry);
+      toDoCheckboxArr[i].addEventListener("click",deleteEntry);
    }
 }
 
