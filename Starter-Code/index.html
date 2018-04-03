@@ -5,10 +5,75 @@
     <title>My Todo List</title>
     <!-- Don't forget to link your .js file -->
     <!-- Don't forget to link your .css file -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHLett8djBo62dDXj0EjCimF8Rd6E8cxg"></script>
+
+<!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+<link rel="stylesheet" type="text/css" href="style.css">
   </head>
   <body>
+    <div> </div>
+		<h1>Monkey to do list </h1>
 
-		<h1>Header to reflect whatever you'd like to call your list</h1>
+    <!--<form id="addform"> -->
+      <!-- <form id="addform">
+        <input id="textform" align="left" type="text" placeholder="Monkey to do list go here">
+        <input id="btn" type="submit" value="Submit">
+
+      </form>
+      <input id="deleteBtn" type="submit" value="Delete">
+      <span><input id="occuranceBtn" type= "submit" value="count frequency"></span>
+      <span><input id="removeBtn" type= "submit" value="remove frequency"></span></span>
+     <table id="tb">
+        <tr id="row">
+        </tr>
+     </table> -->
+    <!--</form> -->
+   
+     <div class="container">
+        <div class="row">
+
+          <div class="col-md-4" id="map" class="column" ></div>
+          <span><button type="submit">click me</button></span>
+        <div id="info" class="column"></div>
+      
+
+
+          <div class="col-md-4" >
+             <form id="addform">
+                <input id="textform" align="left" type="text" placeholder="Monkey to do list go here">
+                <input id="btn" type="submit" value="Submit">
+
+              </form>
+              <input id="deleteBtn" type="submit" value="Delete">
+              <span><input id="occuranceBtn" type= "submit" value="count frequency"></span>
+              <span><input id="removeBtn" type= "submit" value="remove frequency"></span></span>
+              <span><input id="ajax" type= "submit" value="Ajax Demo"></span>
+
+              <table id="tb">
+              <tr id="row">
+              </tr>
+              </table>
+              <p id="demo"></p>
+          </div>
+          
+           
+      
+        
+
+           <div class="col-md-4" >
+            
+          </div>
+        </div>
+    </div>
+    
 
 
       <!-- This is a where you could add a <form>
@@ -19,6 +84,6 @@
     <!-- You also need a place to append your jQuery logic to the DOM (your list).
     Perhaps you could try using tags such as <ol> or <ul> -->
 
-
+      <script type="text/javascript" src="app.js"></script>
 	</body>
 </html>
