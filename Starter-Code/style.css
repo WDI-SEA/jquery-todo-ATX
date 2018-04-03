@@ -1,1 +1,27 @@
 /* Your CSS will go here */ 
+
+body {
+
+	background-color : #42c8f4;
+}
+h1{
+	color: red;
+	text-align: center;
+
+}
+
+table td, th{
+	witdth : 100%;
+	border : 1px solid black;
+}
+td{
+	height : 50px;
+	text-align: left;
+}
+
+#map {
+	width : 400px;
+	height: 600px;
+	
+}
+
