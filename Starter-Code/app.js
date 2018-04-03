@@ -128,6 +128,12 @@ $( document ).ready(function() {
 		}
 	}
 
+	const sortFromNewest = () => {
+		for(let i = listArr.length-1; i >= 0; i--){
+			appendToList(i)
+		}
+	}
+
 	// const sortAtoZ = () => {
 	// 	let tempArray = [];
 	// 	let sortedArray = [];
@@ -146,31 +152,31 @@ $( document ).ready(function() {
 	// 		}
 	// 	}
 	// 	for(let k = 0; k < tempArray.length; k++){
-	// 		console.log(k);
-	// 		//appendToList(k)
+	// 		appendToList(k)
 	// 	}
 	// }
 
-	const sortFromNewest = () => {
-		for(let i = listArr.length-1; i >= 0; i--){
-			appendToList(i)
-		}
-	}
-
-	const appendToList = (i) => {
+	const appendToList = (index) => {
+		//let index = 0;
+		// if (i.length === 2) {
+		// 	index = i[1];
+		// 	value = i[0]; //change correct ones to value
+		// } else {
+		// 	index = i //change
+		// }
 		$("<li>",{
-		    text: listArr[i].value,
+		    text: listArr[index].value,
 		    class: "list-items",
-		    id: "list-" + i 
+		    id: "list-" + index 
 		}).appendTo("#myList");
 		$("<span>",{
 		    class: "glyphicon glyphicon-remove removeIcon",
-		    id: "listSpan-" + i 
-		}).appendTo("#list-" + i);
-		if (listArr[i].crossed === true) {
-			$("#list-" + i).addClass("lineThrough");
+		    id: "listSpan-" + index
+		}).appendTo("#list-" + index);
+		if (listArr[index].crossed === true) {
+			$("#list-" + index).addClass("lineThrough");
 		}
-		listArr[i].id = i;
+		// listArr[index].id = index; //delete?
 	}
 
 	createList();
