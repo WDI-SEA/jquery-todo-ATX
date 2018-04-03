@@ -1,1 +1,77 @@
-/* Your CSS will go here */ 
+body {
+	margin: 0 auto;
+	background: url("spiral.jpg");
+	background-attachment: fixed;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+
+}
+
+h1 {
+	text-align: center;
+	font-family: 'Chicle', cursive;
+	color: black;
+	font-size: 80px;
+}
+
+img {
+	position: relative;
+	width: 40%;
+	height: 40%;
+	margin-top: 250px;
+	float: left;
+	
+}
+
+#form1 {
+	width: 40%;
+	background: white;
+	text-align: center;
+	padding: 15px 0 15px 0;
+	border-radius: 15px;
+	position: relative;
+	float: right;
+	margin-right: 150px;
+	margin-top: 200px;
+	font-family: "Chicle", cursive;
+	color: black;
+	font-size: 20px;
+	border: 10px solid #FF69B4;
+
+}
+
+#submitButton {
+	position: relative;
+	top: 10px;
+	padding: 10px 15px 10px 15px;
+	border-radius: 10px;
+	font-size: 20px;
+	float: right;
+	margin-right: -720px;
+	margin-top: 170px;
+	border: 10px solid #FF69B4;
+	color: #551A8B;
+	font-family: "Chicle", cursive;
+	
+}
+
+#list {
+	width: 50%;
+	background: white;
+	text-align: left;
+	padding: 60px 0 60px 0;
+	border-radius: 15px;
+	position: relative;
+	border: 10px solid #FF69B4;
+	font-family: 'Chicle', cursive;
+	font-size: 20px;
+	float: right;
+	margin-top: 30px;
+	margin-right: 60px;
+	color: black;
+}
+
+#cat {
+	display: none;
+}
