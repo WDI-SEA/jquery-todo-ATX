@@ -3,7 +3,6 @@ const getLocalStorage = () => {
     if (savedPostsStr) {
         movieList = JSON.parse(savedPostsStr);
         for (let key in movieList ) {
-            console.log(movieList[key])
             $('#moviesUl').append(`<li class="listItem">${movieList[key].title}<span><i class="fas fa-check "></i></span></li>`);
         };
     };
@@ -11,14 +10,11 @@ const getLocalStorage = () => {
 
 $(document).ready(() => {
     getLocalStorage()
-    // checkForDeletions()
-    // updateLists()
-
+    
 
     let movieList = [];
 
     const setLocalStorage = (entriesObj) => {
-        console.log(entriesObj)
         localStorage.setItem('movieList', JSON.stringify(entriesObj));
     }
     
@@ -35,7 +31,7 @@ $(document).ready(() => {
             title: $('#search').val(),
             timeStamp: e.timeStamp,
         }
-        movieList.pop(newMovieTitle)
+        movieList.push(newMovieTitle)
         // movieList.timeStamp = e.timeStamp
         // movieList.title = $('#search').val()
         $('#search').val('')
@@ -43,14 +39,14 @@ $(document).ready(() => {
             (   // does jQuery not accept template literals? idk why it worked ealier
             '<li class="listItem">' + newMovie + '<span><i class="fas fa-check "></i></span></li>'
             )
-            console.log(movieList)
         // add new item to local storage
         setLocalStorage(newMovie)
+        console.log('new Movie', newMovie)
+        console.log('movieList',movieList)
     })
 
     // check off watched film by clicking
     $('ul').on('click', 'li', function () {
-        console.log(this)
         $(this).toggleClass('completed')
     })
 
@@ -63,6 +59,4 @@ $(document).ready(() => {
                 $(this).remove();
             });
     })
-    // setLocalStorage(newMovie)
-
 })
