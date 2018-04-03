@@ -15,7 +15,7 @@ $(document).ready(() => {
     // updateLists()
 
 
-    let movieList = {};
+    let movieList = [];
 
     const setLocalStorage = (entriesObj) => {
         console.log(entriesObj)
@@ -31,15 +31,19 @@ $(document).ready(() => {
         e.preventDefault()
 
         const newMovie = $('#search').val()
-
-        movieList.timeStamp = e.timeStamp
-        movieList.title = $('#search').val()
+        let newMovieTitle = {
+            title: $('#search').val(),
+            timeStamp: e.timeStamp,
+        }
+        movieList.pop(newMovieTitle)
+        // movieList.timeStamp = e.timeStamp
+        // movieList.title = $('#search').val()
         $('#search').val('')
         $('#movieUl').append
             (   // does jQuery not accept template literals? idk why it worked ealier
             '<li class="listItem">' + newMovie + '<span><i class="fas fa-check "></i></span></li>'
             )
-            console.log(newMovie)
+            console.log(movieList)
         // add new item to local storage
         setLocalStorage(newMovie)
     })
@@ -59,5 +63,6 @@ $(document).ready(() => {
                 $(this).remove();
             });
     })
+    // setLocalStorage(newMovie)
 
 })
