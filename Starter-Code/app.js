@@ -1,56 +1,62 @@
-let entriesObj = {};
-// var list = $('#entry-list');
-
-const getLocalStorage = () => {
-   let savedPostsStr = localStorage.getItem('storedTodoList');
-   if (savedPostsStr) {
-      entriesObj = JSON.parse(savedPostsStr);
-      for (let key in entriesObj) {
-         $('#entry-list').append(`<label><li><i class="far fa-square"></i>&nbsp;&nbsp;${entriesObj[key].value}</li></label>`);
-      };
-   };
-}
+let toDoArr = [];
 
 const setLocalStorage = (entriesObj) => {
-   localStorage.setItem('storedTodoList', JSON.stringify(entriesObj));
+   localStorage.setItem('storedTodoList', JSON.stringify(toDoArr));
 }
 
-const deleteEntry = () => {
-   // <i class="far fa-check-square"></i>
-   console.log('clicked delete');
+// const checkOffEntry = function(e) {
+//    let toDoItemToCheckOff = $(this).find('svg');
+//    $(toDoItemToCheckOff).removeClass('fa fa-square fa-w-14');
+//    $(toDoItemToCheckOff).addClass('far fa-check-square');
+// }
 
+const deleteEntry = function(e) {
+   let toDoItemToRemove = $('li').index(this);
+   this.remove(toDoItemToRemove);
+   toDoArr.splice(toDoItemToRemove,1);
+   setLocalStorage(toDoArr);
 }
 
 const listenForEntryDeletions = () => {
-   let closeButtonsArr = $('.remove-item');
-   // for (let i = 0; i < closeButtonsArr.length; i++) {
-   //    closeButtonsArr[i].click(deleteEntry);
-   // };
-   jQuery.each(closeButtonsArr), function(index,value) {
-      closeButtonsArr[index].click(deleteEntry);
-   };
+   //jQuery-ify the code below
+   let toDoCheckboxArr = document.getElementsByClassName("todo-list-item");
+   for (let i = 0; i < toDoCheckboxArr.length; i++) {
+      toDoCheckboxArr[i].addEventListener("click",checkOffEntry);
+   }
 }
 
 const updateList = () => {
    $('form').submit((e) => {
       e.preventDefault();
-      let postText = $('.input-box').val();
-      if (postText !== '') {
-         if (jQuery.isEmptyObject(entriesObj)) {
-            entriesObj[0] = {};
-            entriesObj[0].value = postText;
-         } else {
-            //TODO: convert the below to jQuery
-            let objLength = Object.keys(entriesObj).length;
-            entriesObj[objLength] = {};
-            entriesObj[objLength].value = postText;
-         }
-         $('ul').append(`<label><li><i class="far fa-square"></i>&nbsp;&nbsp;${postText}</li></label>`);
+      
+      let newToDo = {};
+      newToDo.value = $('.input-box').val();
+      newToDo.complete = false;
+      
+      if (newToDo.value !== '') {
+         toDoArr.push(newToDo);
+
+         $('ul').append(`<li class="todo-list-item"><i class="far fa-square"></i>&nbsp;&nbsp;${newToDo.value}</li>`);
          $('.input-box').val('');
       };
-      setLocalStorage(entriesObj);
+      setLocalStorage(toDoArr);
+      listenForEntryDeletions();
    })
-   listenForEntryDeletions();
+}
+
+const getLocalStorage = () => {
+   let savedPostsStr = localStorage.getItem('storedTodoList');
+   if (savedPostsStr) {
+      toDoArr = JSON.parse(savedPostsStr);
+      
+      toDoArr.forEach( (item) => {
+         if (!item.completed) {
+            $('#entry-list').append(`<li class="todo-list-item"><i class="far fa-square"></i>&nbsp;&nbsp;${item.value}</li>`);
+         } else {
+            $('#entry-list').append(`<li class="todo-list-item"><i class="far fa-check-square"></i>&nbsp;&nbsp;${item.value}</li>`);
+         }
+      });
+   };
 }
 
 $(document).ready(function(){
