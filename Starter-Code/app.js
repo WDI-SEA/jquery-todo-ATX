@@ -8,7 +8,10 @@ $( document ).ready(function() {
 		listArr = JSON.parse(localStorage.getItem("listArr"));
 	}
 	let sortingMethod = "byNewest";
-
+	if (localStorage.getItem("sortingMethod")){
+		sortingMethod = JSON.parse(localStorage.getItem("sortingMethod"));
+	}
+	
 	// if there's a value in the input field and the user submits, will add the value into the master array and display the list based on the selected sorting method, then clear the form
 	$("#form1").on("submit", (e) => {
 		e.preventDefault();
@@ -23,33 +26,41 @@ $( document ).ready(function() {
 	})
 
 	// sorts the list as newest on top
-	$("#sortFromNewest").on("click", (e) => {
-		sortingMethod = "byNewest";
-        if (!$("#sortFromNewest").hasClass("btn-primary")) {
-        	$("button").removeClass("btn-primary");
-        	$("#sortFromNewest").addClass("btn-primary");
-        }
-		if ($("#inputList").val()) {
-			addItemToObject();
-		}
-		createList();
+	$("#sortFromNewest").on("click", () => {
+		let button = $("#sortFromNewest");
+		let method = "byNewest";
+		sortButton(button, method);
 	})
 
 	// sorts the list as oldest on top
-	$("#sortFromOldest").on("click", (e) => {
-		sortingMethod = "byOldest";
-        if (!$("#sortFromOldest").hasClass("btn-primary")) {
+	$("#sortFromOldest").on("click", () => {
+		let button = $("#sortFromOldest");
+		let method = "byOldest";
+		sortButton(button, method);
+	})
+
+	const sortButton = (button, method) => {
+		sortingMethod = method;
+        if (!button.hasClass("btn-primary")) {
         	$("button").removeClass("btn-primary");
-        	$("#sortFromOldest").addClass("btn-primary");
+        	button.addClass("btn-primary");
         }
 		if ($("#inputList").val()) {
 			addItemToObject();
 		}
 		createList();
-	})
-
-	// $("#sortFromAtoZ").on("click", (e) => {
-	// 	sortAtoZ();
+	}
+	// $("#sortFromAtoZ").on("click", () => {
+	// 	sortingMethod = "byAtoZ";
+	// 	localStorage.setItem("sortingMethod", JSON.stringify(sortingMethod));
+ //        if (!$("#sortFromAtoZ").hasClass("btn-primary")) {
+	//     	$("button").removeClass("btn-primary");
+	//     	$("#sortFromAtoZ").addClass("btn-primary");
+ //        }
+ //        if ($("#inputList").val()) {
+	// 		addItemToObject();
+	// 	}
+	// 	createList();
 	// })
 
 	// resets the list and counter
@@ -60,6 +71,7 @@ $( document ).ready(function() {
 		$("#postCount").text(postCount);
 		localStorage.removeItem("listArr");
 		localStorage.removeItem("postCount");
+		//sortingMethod = "byNewest";
 	})
 
 	let delay = 300, clicks = 0, timer = null;
@@ -94,10 +106,14 @@ $( document ).ready(function() {
         e.preventDefault();
     });
 
+	// loads post count, master array, and sorting method from previous sessions if they exist. Otherwise create defaults
+
+
 	// creates the list based on the master array and selected sorting option
 	const createList = () => {
 		$("#myList").empty();
 		document.getElementById("form1").reset();
+		localStorage.setItem("sortingMethod", JSON.stringify(sortingMethod));
 		switch(sortingMethod){
 			case "byOldest":
 				sortFromOldest();
@@ -105,6 +121,9 @@ $( document ).ready(function() {
 			case "byNewest":
 				sortFromNewest();
 				break;
+			// case "byAtoZ":
+			// 	sortAtoZ();
+			// 	break;
 			default:
 				console.log("sortingMethod variable value missing")
 				break;
@@ -114,10 +133,15 @@ $( document ).ready(function() {
 	// creates a new list item and stores it in a master array into its own object that contains the value written into the field, the order in which it was written, and the date and time when it was written
 	const addItemToObject = () => {
 		let myTime = new Date().toLocaleString();
+		let itemID = 0;
+		if (listArr[listArr.length-1]) {
+			itemID = listArr.length
+		}
 		listArr.push({
 			value: $("#inputList").val(),
 			time: myTime,
-			crossed: false
+			crossed: false,
+			id: itemID
 		})
 	}
 
@@ -135,50 +159,58 @@ $( document ).ready(function() {
 	}
 
 	// const sortAtoZ = () => {
-	// 	let tempArray = [];
-	// 	let sortedArray = [];
-	// 	listArr.forEach(val => {
-	// 		tempArray.push(val.value)
-	// 	})
-	// 	sortedArray = tempArray.sort();
-	// 	tempArray = [];
-	// 	for(let i = 0; i < sortedArray.length; i++){
-	// 		for (let j = 0; j < listArr.length; j++) {
-	// 			for (let key in listArr[j]){
-	// 				if (listArr[j][key] === sortedArray[i]) {
-	// 					tempArray.push([sortedArray[i], listArr[j].id]);
-	// 				}
-	// 			}
-	// 		}
-	// 	}
-	// 	for(let k = 0; k < tempArray.length; k++){
-	// 		appendToList(k)
-	// 	}
+		// let tempArray = [];
+		// let sortedArray = [];
+		// listArr.forEach(val => {
+		// 	tempArray.push(val.value)
+		// })
+		// sortedArray = tempArray.sort();
+		// tempArray = [];
+		// for(let i = 0; i < sortedArray.length; i++){
+		// 	for (let j = 0; j < listArr.length; j++) {
+		// 		for (let key in listArr[j]){
+		// 			if (listArr[j][key] === sortedArray[i]) {
+		// 				tempArray.push([sortedArray[i], listArr[j].id, j]);
+		// 			} 
+		// 		}
+		// 	}
+		// }
+		// let temp = 0;
+		// for(let k = 0; k < tempArray.length; k++){
+		// 	temp = tempArray[k][2];
+		// 	console.log(tempArray[k][2]);
+		// 	$("<li>",{
+		// 	    text: tempArray[k][0],
+		// 	    class: "list-items",
+		// 	    id: "list-" + listArr[temp]
+		// 	}).appendTo("#myList");
+		// 	$("<span>",{
+		// 	    class: "glyphicon glyphicon-remove removeIcon",
+		// 	    id: "listSpan-" + listArr[temp]
+		// 	}).appendTo("#list-" + listArr[temp]);
+		// 	if (listArr[temp].crossed === true ) {
+		// 		$("#list-" + listArr[temp] ).addClass("lineThrough");
+		// 	}
+		// }
 	// }
 
-	const appendToList = (index) => {
-		//let index = 0;
-		// if (i.length === 2) {
-		// 	index = i[1];
-		// 	value = i[0]; //change correct ones to value
-		// } else {
-		// 	index = i //change
-		// }
+	const appendToList = (i) => {
 		$("<li>",{
-		    text: listArr[index].value,
+		    text: listArr[i].value,
 		    class: "list-items",
-		    id: "list-" + index 
+		    id: "list-" + i 
 		}).appendTo("#myList");
 		$("<span>",{
 		    class: "glyphicon glyphicon-remove removeIcon",
-		    id: "listSpan-" + index
-		}).appendTo("#list-" + index);
-		if (listArr[index].crossed === true) {
-			$("#list-" + index).addClass("lineThrough");
+		    id: "listSpan-" + i
+		}).appendTo("#list-" + i);
+		if (listArr[i].crossed === true) {
+			$("#list-" + i).addClass("lineThrough");
 		}
-		// listArr[index].id = index; //delete?
 	}
-
+	if (sortingMethod === "byOldest"){
+		sortButton($("#sortFromOldest"), "byOldest");
+	}
 	createList();
 	$("#postCount").text(postCount);
 });
